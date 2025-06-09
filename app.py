@@ -1,10 +1,10 @@
 from flask import Flask,request,jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-from sqlalchemy.orm import DeclarativeBase, Mapped, relationship, mapped_column
-from sqlalchemy import Column, String, ForeignKey, Table, select
-from typing import List,Optional
-from marshmallow import ValidationError,fields
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import Column, ForeignKey, Table, select
+from typing import List
+from marshmallow import ValidationError
 from datetime import date
 
 
@@ -15,7 +15,7 @@ app= Flask(__name__)
 ## MySQL database Configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:welcomesql1@localhost/ecommerce_api'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# app.config['SQLALCHEMY_ECHO'] = True
+app.config['SQLALCHEMY_ECHO'] = True
 
 # Creating our Base Model
 class Base(DeclarativeBase):
